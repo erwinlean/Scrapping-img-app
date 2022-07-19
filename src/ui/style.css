@@ -1,0 +1,6 @@
+@import '/node_modules\normalize.css\normalize.css';
+
+body,html{
+    background: rgb(155, 228, 228);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
