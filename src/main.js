@@ -4,24 +4,35 @@
 const {app, BrowserWindow, Menu, shell} = require ("electron");
 const path = require('path');
 
+//bugs fix(?)
+app.disableHardwareAcceleration();
+app.commandLine.appendSwitch('disable-features','OutOfBlinkCors');
+app.commandLine.appendSwitch('disable-site-isolation-trials')
+app.commandLine.appendSwitch('disable-web-security')
+//Electron Security Warning (Insecure Content-Security-Policy)
+process.env['ELECTRON_DISABLE_SECURITY_WARNINGS']=true;
+
 require("electron-reload")(__dirname);
 
 //creacion de aplicacion vista
 const createWindows = () => {
     window = new BrowserWindow ({
-        width: 800, //px
-        height: 600,
+        width: 1200, //px
+        height: 720,
         //frame:false, para modificar el manu y personalizar, crear menu, no utilizar por default de electron
         //transparent: true, same as the last line
         webPreferences: {
             nodeIntegration: true,
-            preload: path.join(__dirname, 'preload.js')
+            contextIsolation: false
         }
-    })
+    });
 
     window.setIcon(path.join(__dirname, 'ui/assets/icons/t-rexweb.jpeg'));
 
-    window.loadFile("src/ui/index.html")
+    window.loadFile("src/ui/index.html");
+
+    //devtools
+    window.webContents.openDevTools();
 
     const menu = Menu.buildFromTemplate([{
         label: "Menu",
@@ -50,16 +61,16 @@ const createWindows = () => {
 
 //windows open when ready and close windows
 app.whenReady().then(() => {
-    createWindows()
+    createWindows();
     app.on('activate', () => {
         if (BrowserWindow.getAllWindows().length === 0) {
-            createWindows()
+            createWindows();
         }
     })
 })
     
 app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') {
-        app.quit()
+        app.quit();
     }
 })

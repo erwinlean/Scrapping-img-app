@@ -11,35 +11,40 @@
 </head>
 <body>
 
-    <div>
-        <h1>Scrapping app</h1>
+    <div class="webTitle">
+        <h2 class="paragraphTitle">Download images, with a simple click of your mouse</h1>
+        <h4 class="subTitle">How the app works?</h6>
+        <p class="paragraph">Insert the link(url) of the page with the photo you want, and our application will show you all the images on that page. You will be able to download any image that appears with a simple click of your mouse.</p>
     </div>
 
-    <section>
-        <div>
+    <section class="searchSection">
+        <div >
             <form>
-                <label for="fUrl">Insert url for images scrapping</label>
-                <input type="text" id="fUrl" name="fUrl" placeholder="insert here">
-                <button>Search</button>
+                <label class="lavelInput" for="inputSearch">Insert url for images scrapping</label>
+                <input type="text" class="input" id="inputSearch" name="inputSearch" placeholder="insert here url">
+                <button id="btnsearch" class="btnInput">Search</button>
             </form>
         </div>
     </section>
 
-    <section>
-        <div>
-            <h3>Scrapping result:</h3>
-            <div>
-                <img src="" alt="">
-            </div>
-        </div>
+    <section class="imgSection">
+        <div id="images" class="imgSearched"></div>
     </section>
 
-    <div>
-        <footer>
-            <p>T-rex web</p>
+    <div class="footer">
+        <div class="devContact">
+            <li><a href=""><img class="icons" src="./assets/icons/whatsapp.png" alt=""></a></li>
+            <li><a href=""><img class="icons" src="./assets/icons/facebook.png" alt=""></a></li>
+            <li><a href=""><img class="icons" src="./assets/icons/instagram.png" alt=""></a></li>
+            <li><a href=""><img class="icons" src="./assets/icons/gmail.png" alt=""></a></li>
+        </div>
+        <footer class="footerSection">
+            <p class="devName">©opyright</p>
+            <img class="devIcon" src="./assets/icons/t-rexweb.jpeg" alt="devIcon">
         </footer>
     </div>
 
-    <script src="./func/scrapping.js"></script>
+    <script src="./func/preventEvent.js"></script>
+    <script src="./func/scrapping.js" defer></script>
 </body>
 </html>
