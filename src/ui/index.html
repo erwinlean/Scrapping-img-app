@@ -14,21 +14,33 @@
     <div class="webTitle">
         <h2 class="paragraphTitle">Download images, with a simple click of your mouse</h1>
         <h4 class="subTitle">How the app works?</h6>
-        <p class="paragraph">Insert the link(url) of the page with the photo you want, and our application will show you all the images on that page. You will be able to download any image that appears with a simple click of your mouse.</p>
+        <p class="paragraph">Insert the link(url) of the page with the element you want, and our application will show you all the elements of the page, on the app. You will be able to download any image that appears with a simple click of your mouse.</p>
     </div>
 
     <section class="searchSection">
         <div >
-            <form>
+            <form id="imageForm">
                 <label class="lavelInput" for="inputSearch">Insert url for images scrapping</label>
                 <input type="text" class="input" id="inputSearch" name="inputSearch" placeholder="insert here url">
-                <button id="btnsearch" class="btnInput">Search</button>
+                <button id="btnsearch" class="btnInput">Search images</button>
             </form>
         </div>
     </section>
-
     <section class="imgSection">
         <div id="images" class="imgSearched"></div>
+    </section>
+
+    <section class="searchSection">
+        <div >
+            <form id="videoForm">
+                <label class="lavelInput" for="inputSearch">Insert url for videos scrapping</label>
+                <input type="text" class="input" id="inputSearchVideo" name="inputSearch" placeholder="insert here url">
+                <button id="btnsearchVideo" class="btnInput">Search video</button>
+            </form>
+        </div>
+    </section>
+    <section class="videoSection">
+        <div id="video" class="imgSearched"></div>
     </section>
 
     <div class="footer">
@@ -44,7 +56,8 @@
         </footer>
     </div>
 
-    <script src="./func/preventEvent.js"></script>
-    <script src="./func/scrapping.js" defer></script>
+    <script src="./func/preventEventDefault.js"></script>
+    <script src="./func/scrappingVideo.js"></script>
+    <script src="./func/scrappingImg.js" defer></script>
 </body>
 </html>

@@ -27,11 +27,13 @@ const createWindows = () => {
         }
     });
 
+    //icon app
     window.setIcon(path.join(__dirname, 'ui/assets/icons/t-rexweb.jpeg'));
 
+    //init at:
     window.loadFile("src/ui/index.html");
 
-    //devtools
+    //devtools on
     window.webContents.openDevTools();
 
     const menu = Menu.buildFromTemplate([{
@@ -54,8 +56,19 @@ const createWindows = () => {
                 click(){
                     app.quit();
             }}
-        ]
-    }])
+        ],
+        /*label: "Edit",
+        submenu: [
+            { role: 'undo' },
+            { role: 'redo' },
+            { type: 'separator' },
+            { role: 'copy' },
+            { role: 'paste' },
+            { type: 'separator' },
+            { role: 'delete' },
+            { role: 'selectAll' },
+        ]*/
+}])
     Menu.setApplicationMenu(menu);
 }
 

@@ -7,9 +7,6 @@
 }
 .webTitle{
     text-align: center;
-    background: #80abcd;
-    background-image: linear-gradient(90deg, #fff7fb, #efeaf4, #dbdaeb, #bfc9e2, #9cb9d9, #72a8cf, #4494c3, #1b7db6, #0668a1, #045281, #04456e);
-    margin-bottom: 2px;
 }
 .paragraphTitle{
     padding: 25px 180px 50px 180px;
@@ -27,8 +24,6 @@
 .searchSection{
     text-align: center;
     padding: 50px 0 50px 0;
-    background: #87c3c7;
-    background-image: linear-gradient(90deg, #fff7fb, #efeaf4, #d4eece, #bde5bf, #9fd9bb, #9cb9d9, #4494c3, #1b7db6, #0668a1, #045281, #04456e);
 }
 .input{
     border-radius: 5px;
@@ -66,8 +61,6 @@
 .imgSection{
     text-align: center;
     padding: 10px 100px 25px 100px;
-    background: #87c3c7;
-    background-image: linear-gradient(90deg, #fff7fb, #efeaf4, #d4eece, #bde5bf, #9fd9bb, #9cb9d9, #4494c3, #1b7db6, #0668a1, #045281, #04456e);
 }
 .divImg{
     width: 280px;
@@ -89,7 +82,55 @@
     object-fit: none;
     vertical-align: middle;
 }
+.divInstagramClass{
+    border: solid 1px black;
+    border-radius: 5px;
+    width: 100%;
+    height: auto;
+    margin: 10px;
+    display: flex;
+    box-sizing: border-box;
+}
+.aInstragram{
+    max-width: fit-content;
+    height: auto;
+    text-decoration: none;
+    overflow: hidden;
+}
+.pClass{
+    display: flex;
+    padding: 5px;
+    width: 100%;
+    height: auto;
+    color: #04314d;
+    text-align: start;
+}
+.instDownload{
+    text-decoration: auto;
+    width: auto;
+    height: auto;
+}
+.btnDownload{
+    height: 100%;
+    text-decoration: none;
+    border: none;
+    padding: 12px 40px;
+    font-size: 16px;
+    background-color: #0668a1;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.24);
+    cursor: pointer;
+    outline: none;
+    transition: 0.2s all;
+}
+.btnDownload:active{
+    transform: scale(0.98);
+   /* Scaling button to 0.98 to its original size */
+    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+   /* Lowering the shadow */
 
+}
 .divImgSet{
     width: 280px;
     height: 280px;
