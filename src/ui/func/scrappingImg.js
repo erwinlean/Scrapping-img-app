@@ -5,9 +5,9 @@ const puppeteer = require('puppeteer');
 
 const faceScrap = {
     facebookUrl : "https://www.facebook.com/",
-    email: "erwin.mdq@gmail.com",
-    password: "4759090oK",
-    instUser :"erwinlean"
+    email: "*********",
+    password: "*********",
+    instUser: "*********"
 }
 
 //save images src
