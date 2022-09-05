@@ -13,6 +13,8 @@ const scraptFunctionVideo = async () =>{
         urlEnd = "https://" + url.value;
     }
     console.log(urlEnd);
+
+    //youtube-dl-
 }
 
 

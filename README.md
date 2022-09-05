@@ -6,3 +6,4 @@
   - Bootstrap: 5.2.0 
   - Electron: 19.0.8 
   - Puppeteer: 15.4.0
+  - next Youtube-dl

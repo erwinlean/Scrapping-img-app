@@ -1,6 +1,7 @@
 "use stric"
+//NEED TO CONFIGURE NEWS PATH AND TRANSFER FUNCTIONS AND INFO THERE
+
 const puppeteer = require('puppeteer');
-//const {showImgSrc,showImgSrcSet} = require("./images.js");
 
 const faceScrap = {
     facebookUrl : "https://www.facebook.com/",
@@ -24,6 +25,36 @@ function forEachImg(imgSrc){
     });
 }
 
+//Loader function
+const loader = () =>{
+    if(images.length === 0){
+        document.getElementById("loaders").style.display = "flex";
+        document.getElementById("searched").style.height = "0px";
+    }else{
+        document.getElementById("loaders").style.display = "none";
+        document.getElementById("searched").style.height = "auto";
+    }
+}
+
+//Change video input or images input by hidden or not
+const btnChange = document.getElementById("btnChangeInput");
+const changeInput = () =>{
+    if(document.getElementById("imageForm").style.visibility == "visible"){
+        document.getElementById("imageForm").style.visibility = "hidden";
+        document.getElementById("imageForm").style.zIndex = "0";
+        document.getElementById("videoForm").style.visibility = "visible";
+        document.getElementById("videoForm").style.zIndex = "100";
+        document.getElementById("btnChangeInput").innerText = "VIDEOS";
+    }else{
+        document.getElementById("imageForm").style.visibility = "visible";
+        document.getElementById("imageForm").style.zIndex = "100";
+        document.getElementById("videoForm").style.visibility = "hidden";
+        document.getElementById("videoForm").style.zIndex = "0";
+        document.getElementById("btnChangeInput").innerText = "IMAGES";
+    }
+}
+
+//Create divs,a,img sections for scrapped elements
 //showing img src
 function showImgSrc(img){
     img.forEach((element) => {
@@ -113,16 +144,19 @@ function showAInstagram(img){
     })
 };
 
+//Principal function for scrapping
 //scrapping function
 const scraptFunctionImg = async () => {
     console.clear();
     console.time("search time");
+
+    //CLEAR FUNCIONANDO MAL 
     //clear array src, before put new ones
     let inst = "instagram";
-    if (images.length != 0){
-        if(images[0].includes(inst)){
-            while (images.length != 0){
-                images.pop();
+    /*if (imagesSet.length != 0){
+        if(imagesSet[0].includes(inst)){
+            while (imagesSet.length != 0){
+                imagesSet.pop();
                 let linkInstagram = document.getElementById('divInstagram');
                 linkInstagram.parentNode.removeChild(linkInstagram);
             }
@@ -133,12 +167,12 @@ const scraptFunctionImg = async () => {
                 imgDel.parentNode.removeChild(imgDel);
             }
         }
-    };  
-    //clear array imgset
-    if (imagesSet.length != 0){
-        while (imagesSet.length != 0){
-            imagesSet.pop();
-            let imgDel = document.getElementById('divForImgSet');
+    };  */
+    //clear array img
+    if (images.length != 0){
+        while (images.length != 0){
+            images.pop();
+            let imgDel = document.getElementById('divForImg');
             imgDel.parentNode.removeChild(imgDel);
         }
     };
@@ -146,6 +180,13 @@ const scraptFunctionImg = async () => {
     //get url
     const url = document.getElementById("inputSearch");
     let urlEnd;
+
+    //loader ex
+    if(url.value === ""){
+        document.getElementById("loaders").style.display = "none";
+    }else{
+        loader();
+    }
 
     //add https if the url doesnt have
     if (url.value.includes("https://")){
@@ -223,7 +264,14 @@ const scraptFunctionImg = async () => {
         showImgSrc(images);
         showImgSrcSet(imagesSet);
     }
+    //loader ex
+    if(url=== ""){
+        document.getElementById("loaders").style.display = "none";
+    }else{
+        loader();
+    }
     console.timeEnd("search time");
 };
 
+btnChange.addEventListener('click',changeInput);
 btnsearch.addEventListener('click',scraptFunctionImg);

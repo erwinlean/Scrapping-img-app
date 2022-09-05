@@ -6,57 +6,125 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
-    <title>Web scarpping app</title>
+    <title>Web scarpping desktop app</title>
 
 </head>
 <body>
-
-    <div class="webTitle">
-        <h2 class="paragraphTitle">Download images, with a simple click of your mouse</h1>
-        <h4 class="subTitle">How the app works?</h6>
-        <p class="paragraph">Insert the link(url) of the page with the element you want, and our application will show you all the elements of the page, on the app. You will be able to download any image that appears with a simple click of your mouse.</p>
-    </div>
-
-    <section class="searchSection">
-        <div >
-            <form id="imageForm">
-                <label class="lavelInput" for="inputSearch">Insert url for images scrapping</label>
-                <input type="text" class="input" id="inputSearch" name="inputSearch" placeholder="insert here url">
-                <button id="btnsearch" class="btnInput">Search images</button>
-            </form>
+    <div class="app">
+        
+        <div class="menu" id="appMenu">
+            <div class="list">
+                <ul class="menuList">
+                    <div class="btnMenu">
+                        <button id="generalMenu" class="menuItem">Menu</button>
+                    </div>
+                    <div class="btnMenu">
+                        <button id="appInfo" class="menuItem">App</button>
+                    </div>
+                    <div class="btnMenu">
+                        <button id="nextInc" class="menuItemLast">Coming Next</button>
+                    </div>
+                </ul>
+            </div>
+            <div class="containerMenuIcons">
+                <ul class="menuIcons">
+                    <li class="containerIcons">
+                        <button class="btnIcons">
+                            <img class="iconsFromMenu" id="min" src="./assets/icons/min.png" alt="">
+                        </button>
+                    </li>
+                    <li class="containerIcons">
+                        <button class="btnIcons">
+                            <img class="iconsFromMenu" id="max" src="./assets/icons/max.png" alt="">
+                        </button>
+                    </li>
+                    <li class="containerIcons">
+                        <button class="btnIcons" id="exit">
+                            <img class="iconsFromMenu" src="./assets/icons/X.png" alt="">
+                        </button>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </section>
-    <section class="imgSection">
-        <div id="images" class="imgSearched"></div>
-    </section>
-
-    <section class="searchSection">
-        <div >
-            <form id="videoForm">
-                <label class="lavelInput" for="inputSearch">Insert url for videos scrapping</label>
-                <input type="text" class="input" id="inputSearchVideo" name="inputSearch" placeholder="insert here url">
-                <button id="btnsearchVideo" class="btnInput">Search video</button>
-            </form>
+        <div class="switchLen" style="display: block;">
+            <label class="switchBtnLen">
+                <input type="checkbox">
+                <div class="slideLen roundLen" id="changeLen">
+                    <span class="len" id="spanLen">EN</span>
+                </div>
+            </label>
         </div>
-    </section>
-    <section class="videoSection">
-        <div id="video" class="imgSearched"></div>
-    </section>
 
-    <div class="footer">
-        <div class="devContact">
-            <li><a href=""><img class="icons" src="./assets/icons/whatsapp.png" alt=""></a></li>
-            <li><a href=""><img class="icons" src="./assets/icons/facebook.png" alt=""></a></li>
-            <li><a href=""><img class="icons" src="./assets/icons/instagram.png" alt=""></a></li>
-            <li><a href=""><img class="icons" src="./assets/icons/gmail.png" alt=""></a></li>
+        <div class="navSection">
+            <div class="nameSection">
+                <p class="mark"></p>
+            </div>
+
+            <div class="inputsSection">
+                <div class="switch">
+                    <label class="switchBtn">
+                        <input type="checkbox">
+                        <div id="btnChangeInput" class="slide round">IMAGES</div>
+                    </label>
+                </div>
+                <div class="searchSectionsGeneral">
+                    <form id="imageForm" class="formsImg" style="visibility: visible; z-index: 100;">
+                        <input type="text" class="input" id="inputSearch" name="inputSearch" placeholder="insert here the image url">
+                        <button id="btnsearch" class="btnInput">Search image</button>
+                    </form>
+                    <form class="formsVid" id="videoForm" style="visibility:hidden;">
+                        <input type="text" class="input" id="inputSearchVideo" name="inputSearch" placeholder="insert here the video url">
+                        <button id="btnsearchVideo" class="btnInput">Search video</button>
+                    </form>
+                </div>
+            </div>
         </div>
-        <footer class="footerSection">
-            <p class="devName">©opyright</p>
-            <img class="devIcon" src="./assets/icons/t-rexweb.jpeg" alt="devIcon">
-        </footer>
+
+        <div class="bodyApp">
+            <div class="leftSection">
+                <div class="infoBtn">
+                    <li class="leftList"><button class="leftBtn" id="infoScrapp">Scrapping</button></li>
+                    <!--<li id="toOpen" style="visibility: hidden;"></li>-->
+                    <li class="leftList"><button class="leftBtn" id="infoAbout" >About</button></li>
+                    <li class="leftList"><button class="leftBtn" id="infoHow" >How it works</button></li>
+                    <li class="leftList"><button class="leftBtn" id="infoDownload" >download</button></li>
+                </div>
+            </div>
+
+            <div class="bodySection">
+                <div class="loadingIcon" id="loaders">
+                    <div class="loader"></div>
+                    <p class="textLoading">Loading ...</p>
+                </div>
+
+                <div class="searchedSection" id="searched">
+                    <div class="imgSection">
+                        <div id="images" class="imgSearched"></div>
+                    </div>
+                    <div class="videoSection">
+                        <div id="video" class="imgSearched"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="footer">
+            <div class="devContact">
+                <li><a href=""><img class="icons" src="./assets/icons/whatsapp.png" alt=""></a></li>
+                <li><a href=""><img class="icons" src="./assets/icons/facebook.png" alt=""></a></li>
+                <li><a href=""><img class="icons" src="./assets/icons/instagram.png" alt=""></a></li>
+                <li><a href=""><img class="icons" src="./assets/icons/gmail.png" alt=""></a></li>
+            </div>
+            <footer class="footerSection">
+                <p class="devName">©opyright</p>
+                <p></p>
+            </footer>
+        </div>
     </div>
 
     <script src="./func/preventEventDefault.js"></script>
+    <script src="./func/btnLeftSection.js"></script>
     <script src="./func/scrappingVideo.js"></script>
     <script src="./func/scrappingImg.js" defer></script>
 </body>

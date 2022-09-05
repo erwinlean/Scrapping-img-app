@@ -1,7 +1,7 @@
 "use stric"
 //app call
 
-const {app, BrowserWindow, Menu, shell} = require ("electron");
+const {app, BrowserWindow, Menu, shell,ipcMain} = require ("electron");
 const path = require('path');
 
 //bugs fix(?)
@@ -14,13 +14,13 @@ process.env['ELECTRON_DISABLE_SECURITY_WARNINGS']=true;
 
 require("electron-reload")(__dirname);
 
-//creacion de aplicacion vista
+//App size 
 const createWindows = () => {
     window = new BrowserWindow ({
-        width: 1200, //px
+        width: 1200,
         height: 720,
-        //frame:false, para modificar el manu y personalizar, crear menu, no utilizar por default de electron
-        //transparent: true, same as the last line
+        //transparent:true,
+        //frame: false,
         webPreferences: {
             nodeIntegration: true,
             contextIsolation: false
@@ -55,22 +55,20 @@ const createWindows = () => {
                 label: "Exit",
                 click(){
                     app.quit();
-            }}
-        ],
-        /*label: "Edit",
-        submenu: [
-            { role: 'undo' },
-            { role: 'redo' },
-            { type: 'separator' },
-            { role: 'copy' },
-            { role: 'paste' },
-            { type: 'separator' },
-            { role: 'delete' },
-            { role: 'selectAll' },
-        ]*/
+            }}]
 }])
     Menu.setApplicationMenu(menu);
 }
+
+ipcMain.on(`display-app-menu`, function(e, args) {
+    if (isWindows && mainWindow) {
+        menu.popup({
+        window: mainWindow,
+        x: args.x,
+        y: args.y
+    });
+    }
+});
 
 //windows open when ready and close windows
 app.whenReady().then(() => {
